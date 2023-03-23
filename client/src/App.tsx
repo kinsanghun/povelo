@@ -11,6 +11,7 @@ import Portfolio from 'pages/Portfolio';
 import Profile from 'pages/Profile';
 import Terms from 'pages/Terms';
 import PostDetail from 'pages/PostDetail';
+import Footer from 'components/Footer';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 					<Route path="/join" element={<Join />}></Route>
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
+        <Footer/>
 			</BrowserRouter>
     </div>
   );

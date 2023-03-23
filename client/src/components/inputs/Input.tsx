@@ -7,19 +7,22 @@ export interface InputProps {
     readonly label? : string;
     readonly placeHolder? : string;
     readonly onChange? : (e:ChangeEvent<HTMLInputElement>) => void;
+    readonly readonly? : boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref):JSX.Element => {
     return (
         <div className="input">
             <div>
-                <input 
+                <input
+                    className={props.readonly ? "readonly" : ""}
                     id={props.id ? props.id : null}
                     ref={ref} 
                     type={props.type}
                     onChange={props.onChange}
                     autoComplete={"off"}
                     placeholder={props.placeHolder ? props.placeHolder : ""}
+                    readOnly={props.readonly ? props.readonly : false}
                 />
                 {
                     props.label 

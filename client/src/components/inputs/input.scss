@@ -7,7 +7,9 @@
         padding :1rem 1.2rem;
         margin : 0.5rem 0;
         border : 0.5px solid rgba(54, 54, 54, 0.745);
-    
+        &.readonly {
+            background: rgba(217, 217, 217, 0.483);
+        }
         &:focus {
             outline : 0.5px solid rgb(37, 37, 37);
         }
