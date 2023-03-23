@@ -1,0 +1,151 @@
+@import './reset.css';
+
+* { box-sizing: border-box; }
+
+.App {
+  position : relative;
+  width : 100%;
+  min-height : 100vh;
+
+  .container {
+    position : relative;
+    max-width : 1200px;
+    min-height : 100vh;
+    padding : 50px 0;
+    margin : 0 auto;
+    &.login, &.join, &.terms { max-width : 600px; }
+    &.login { 
+      .forget {
+        margin-top : 2rem;
+        h2 { font-size : 1.1rem; font-weight : 600; }
+        .btn {
+          display: flex;
+          gap : 0.5rem;
+          margin-top : 1.2rem;
+          font-size : 1rem;
+          a {color : rgb(83, 127, 197);}
+        }
+      }
+    }
+  }
+}
+
+a { 
+  text-decoration: none; 
+  color : #1f1f1f; 
+
+  &:hover { 
+    color : rgb(70, 70, 70); 
+  }
+}
+header {
+  position : sticky;
+  top : 0;
+  width : 100%;
+  padding : 25px 0px;
+  background: white;
+  z-index: 1000;
+
+  &>div {
+    position : relative;
+    max-width : 1200px;
+    height : 100%;
+    display: flex;
+    justify-content: space-between;
+    margin : 0 auto;
+    
+    h2 {
+      font-size : 1.2rem; 
+      font-weight : 600; 
+    }
+
+    ul {
+      display: flex;
+      gap : 2.5rem;
+    }
+  }
+}
+
+.sub-title {
+  text-align : center;
+  font-size : 1.2rem;
+  font-weight : 600;
+  text-transform: uppercase;
+  margin : 3rem 0;
+}
+
+.section-title {
+  text-align : center;
+  font-size : 1.1rem;
+  font-weight : 600;
+  text-transform: uppercase;
+  margin : 1rem 0;
+}
+
+.state-text {
+  font-size : 0.8rem;
+  margin-bottom : 0.5rem;
+  &.description {
+    color : gray;
+  }
+  &.alert {
+    color : rgb(253, 119, 119);
+  }
+}
+
+.portfolio {
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-flow : row wrap;
+    gap : 1rem;
+  }
+  .filter {
+    border-bottom : 0.5px solid gray;
+    .filter-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap : 1rem;
+      font-weight : 600;
+      &>span { transition : 0.5s; display: flex; align-items: center; }
+    }
+    .detail {
+      transition : 0.4s;
+      overflow: hidden;
+      padding : 1.5rem 1rem;
+      // background: rgba(128, 128, 128, 0.301);
+    }
+  }
+  .viewer {
+    width : 100%;
+    margin : 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap : 1rem;
+  }
+}
+
+.terms {
+  .term-box {
+    width : 100%;
+    height : 300px;
+    border : 0.5px solid gray;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    overflow-y: auto;
+    margin-bottom : 1rem;
+  }
+}
+
+.join {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap : 2rem;
+  }
+  .call-number, .birthday {
+    display: flex;
+    gap : 10px;
+  }
+}

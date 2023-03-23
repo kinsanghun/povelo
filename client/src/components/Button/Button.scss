@@ -1,0 +1,35 @@
+.category {
+    position: relative;
+    text-align : center;
+    flex : 1;
+    min-width : 250px;
+    padding : 1.2rem;
+    border-radius: 5px;
+    color : white;
+    // overflow: hidden;
+    cursor: pointer;
+    .black {
+        position : absolute;
+        top : 0;
+        left : 0;
+        width : 100%;
+        height : 100%;
+        background: rgba(0, 0, 0, 0.548);
+    }
+    .image {
+        position : absolute;
+        top : 0;
+        left : 0;
+        width : 100%;
+        height : 100%;
+        img {
+            width : 100%;
+            height : 100%;
+        }
+    }
+    h2 {
+        position: relative;
+        font-weight : 600;
+        font-size : 1.2rem;
+    }
+}

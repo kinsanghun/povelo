@@ -1,0 +1,47 @@
+.carousel {
+    position: relative;
+    width : 100%;
+    height: 400px;
+    background: gray;
+    .page-nav {
+        position : absolute;
+        width : 100px;
+        height : 10px;
+        left : 50%;
+        bottom : 30px;
+        display: flex;
+        transform : translateX(-50%);
+        z-index: 1000;
+        gap : 10px;
+        .dot {
+            position: relative;
+            display: inline-block;
+            width : 0.5rem;
+            height: 0.5rem;
+            background: rgba(255, 255, 255, 0.619);
+            transition : 0.4s;
+            &.active {
+                width : 3rem;
+                background: white;
+            }
+        }
+        
+    }
+    .pages {
+        position: relative;
+        width : 100%;
+        height: 400px;
+        .page {
+            position: relative;
+            width : 100%;
+            height: 400px;
+            img {
+                position: relative;
+                width : 100%;
+                height: 400px;
+                object-fit :cover;
+                object-position: 0%;
+            }
+        }
+    }
+}

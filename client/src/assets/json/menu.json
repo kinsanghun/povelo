@@ -1,0 +1,26 @@
+[
+    {
+        "id" : "menu_frontend",
+        "selector" : "frontend",
+        "title" : "front-end",
+        "src" : "assets/frontend.png"
+    },
+    {
+        "id" : "menu_backend",
+        "selector" : "backend",
+        "title" : "back-end",
+        "src" : "assets/backend.png"
+    },
+    {
+        "id" : "menu_python",
+        "selector" : "Python",
+        "title" : "Python",
+        "src" : "assets/python.png"
+    },
+    {
+        "id" : "menu_java",
+        "selector" : "Java",
+        "title" : "Java",
+        "src" : "assets/java.png"
+    }
+]
