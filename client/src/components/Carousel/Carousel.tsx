@@ -3,9 +3,10 @@ import "./Carousel.scss";
 
 interface PageProps {
     src : string;
+    active? : boolean;
 }
-function Page({src}:PageProps) {
-    return (<div className="page"><img src={src}/></div>)
+function Page({src, active=false}:PageProps) {
+    return (<div className="page" style={active ? {opacity : 100} : {opacity : 0}}><img src={src}/></div>)
 }
 
 interface DotProps {
@@ -16,18 +17,24 @@ function Dot({active}:DotProps) {
 }
 
 export default function Carousel() {
+    const [carousel, setCarousel] = useState(
+        [
+            "assets/tmpCarousel.png",
+            "assets/tmpPost.jpg",
+            "assets/tmpImg.png"
+        ]);
     const [page, setPage] = useState(0);
 
-    const tmpPage = <Page src="assets/tmpCarousel.png"/>
-    const dots = [0, 0, 0].map((data, index) => index === page ? <Dot active={true}/> : <Dot/>);
+    const tmpPage = carousel.map((data, index) => <Page src={data} active={index === page ? true: false}/>)
+    const dots = carousel.map((data, index) =>  <span onClick={()=>{setPage(index)}}><Dot active={index === page ? true : false}/></span>);
 
     useEffect(()=>{
         const interval = setInterval(()=>{
             setPage(prev => (prev + 1) % 3);
-        }, 1000)
+        }, 2000)
 
         return () => clearInterval(interval);
-    }, [])
+    }, [page])
     return (
         <div className="carousel">
             <div className="pages">{tmpPage}</div>

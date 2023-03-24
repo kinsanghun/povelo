@@ -4,7 +4,7 @@ import SectionTitle from "components/SectionTitle"
 import Alert from "components/StateText/Alert"
 import Description from "components/StateText/Description"
 import SubTitle from "components/Title"
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react"
+import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from "react"
 import { Address, useDaumPostcodePopup } from "react-daum-postcode"
 
 
@@ -23,7 +23,10 @@ export default function Join() {
     const [comparePassword, setComparePassword] = useState('');
     const [comparePasswordValid, setComparePasswordValid] = useState(false);
     
+    // ref
+    const birthdayRef = useRef<HTMLInputElement[]>([]);
     const postCodeRef = useRef<HTMLInputElement[]>([]);
+    const callRef = useRef<HTMLInputElement[]>([]);
 
     // handler
     const emailHandler = useCallback((e:ChangeEvent<HTMLInputElement>) => {
@@ -94,10 +97,17 @@ export default function Join() {
         })
     }
 
+    const joinFormHandler = (e:FormEvent) => {
+        e.preventDefault();
+
+        if(birthdayRef.current && postCodeRef.current && callRef.current) {
+            
+        }
+    }
     return (
         <div className="container join">
             <SubTitle title="회원가입"/>
-            <form>
+            <form onSubmit={joinFormHandler}>
                 <div>
                     <SectionTitle title="이메일"/>
                     <Input type={"text"} placeHolder="이메일" onChange={emailHandler}/>
@@ -115,9 +125,9 @@ export default function Join() {
                 <div>
                     <SectionTitle title="생년월일"/>
                     <div className="birthday">
-                        <Input type={"text"} placeHolder="년도 4자리"/>
-                        <Input type={"text"} placeHolder="출생월"/>
-                        <Input type={"text"} placeHolder="일"/>
+                        <Input ref={ref => birthdayRef.current[0] = ref!} type={"text"} placeHolder="년도 4자리"/>
+                        <Input ref={ref => birthdayRef.current[1] = ref!} type={"text"} placeHolder="출생월"/>
+                        <Input ref={ref => birthdayRef.current[2] = ref!} type={"text"} placeHolder="일"/>
                     </div>
                 </div>
                 <div>
@@ -137,11 +147,11 @@ export default function Join() {
                 <div>
                     <SectionTitle title="연락처"/>
                     <div className="call-number">
-                        <Input type={"text"} placeHolder="010"/>
-                        <Input type={"text"} placeHolder="0000"/>
-                        <Input type={"text"} placeHolder="0000"/>
+                        <Input ref={ref => callRef.current[0] = ref!} type={"text"} placeHolder="010"/>
+                        <Input ref={ref => callRef.current[1] = ref!} type={"text"} placeHolder="0000"/>
+                        <Input ref={ref => callRef.current[2] = ref!} type={"text"} placeHolder="0000"/>
                     </div>
-                    <Description text="연락처는 휴대전화의 번호를 사용하시는 것을 권장합니다." />
+                    <Description text="연락처는 휴대전화 번호를 사용하시는 것을 권장합니다." />
                 </div>
                 <Submit text="회원가입"/>
             </form>

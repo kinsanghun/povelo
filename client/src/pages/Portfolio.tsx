@@ -1,9 +1,11 @@
 import Category from "components/Button/Category";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import MENU from 'assets/json/menu.json';
 import SubTitle from "components/Title";
 import { AiFillCaretDown } from "react-icons/ai";
 import Post from "components/Post/Post";
+import SectionTitle from "components/SectionTitle";
+import LoadMore from "components/Button/LoadMore";
 
 export type SelectType = string | number;
 
@@ -16,8 +18,13 @@ export default function Portfolio() {
     const handler = (select:SelectType) => {
         setSelect(select);
     }
-    const tmpPosts = Array.from({length : 23}, (undefined, i) => <Post key={i} id={i}/>);
+
+    const tmpPosts = Array.from({length : 8}, (undefined, i) => <Post key={i} id={i}/>);
     const menu = MENU.map(data => <Category key={data.id} src={data.src} title={data.title}  selector={data.selector} handler={handler}/>);
+
+    const loadMoreHandler = (e:FormEvent) => {
+
+    }
 
     return (
         <div className="container portfolio">
@@ -40,6 +47,7 @@ export default function Portfolio() {
             <div className="viewer">
                 {tmpPosts}
             </div>
+            <LoadMore handler={loadMoreHandler}/>
         </div>
     )
 }
